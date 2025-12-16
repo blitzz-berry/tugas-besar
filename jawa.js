@@ -25,7 +25,7 @@ const destinations = [
         title: "Kota Tua Jakarta, DKI Jakarta",
         description: "Kawasan bersejarah dengan arsitektur kolonial Belanda dan museum-museum menarik.",
         category: "budaya",
-        image: "image/jakarta (11).jpg",
+        image: "image/kotatua (1).jpg",
         province: "DKI Jakarta",
         date: "05 Des 2025",
         views: 1800
