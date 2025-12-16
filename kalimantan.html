@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalimantan - Wonderful Indonesia</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="image/wonderfulindonesia.png" alt="Wonderful Indonesia Logo" class="logo-img">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="nav-sumatera-kt">Sumatera</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="nav-jawa-kt">Jawa</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Kalimantan</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="nav-sulawesi-kt">Sulawesi</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex align-items-center">
+                        <div class="input-group search-container">
+                            <input type="text" class="form-control" placeholder="Search..." id="searchInput">
+                            <button class="btn btn-outline-primary" type="button" id="searchButton">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <section class="bg-light py-3">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active">Kalimantan</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="hero-sumatera vh-50 position-relative">
+        <div id="heroBackground" class="hero-background position-absolute top-0 start-0 w-100 h-100" style="background-image: url('image/dayak.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; z-index: 2;">
+            <div class="overlay position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
+        </div>
+        <div class="hero-content position-absolute top-50 start-50 translate-middle text-center text-white z-1">
+            <h1 class="display-2 fw-bold mb-3">KALIMANTAN</h1>
+            <p class="lead mb-4">Jelajahi hutan belantara dan budaya suku Dayak</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="my-5">
+        <div class="container">
+            <div class="row">
+                <!-- Content Column -->
+                <div class="col-lg-8">
+                    <!-- Intro Section -->
+                    <section class="intro mb-5">
+                        <p class="fs-5 text-center">Kalimantan, pulau terbesar di Indonesia, dikenal sebagai rumah hutan hujan tropis terluas kedua di dunia. Dengan kekayaan alam yang luar biasa, suku Dayak yang khas, dan sungai-sungai besar yang membelah pulau, Kalimantan menawarkan petualangan alam dan budaya yang tak terlupakan.</p>
+                    </section>
+
+                    <!-- Filter Section -->
+                    <section class="filter-section bg-light py-4 mb-4">
+                        <div class="container-fluid px-0">
+                            <div class="row align-items-center">
+                                <div class="col-md-3">
+                                    <h4 class="mb-0">Destinasi di Kalimantan</h4>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="filters d-flex flex-wrap gap-3">
+                                        <button class="btn btn-outline-primary filter-btn active" data-filter="all">Semua</button>
+                                        <button class="btn btn-outline-primary filter-btn" data-filter="alam">Alam</button>
+                                        <button class="btn btn-outline-primary filter-btn" data-filter="budaya">Budaya</button>
+                                        <button class="btn btn-outline-primary filter-btn" data-filter="kuliner">Kuliner</button>
+                                        <button class="btn btn-outline-secondary filter-btn" data-filter="province:Kalimantan Barat">Kalbar</button>
+                                        <button class="btn btn-outline-secondary filter-btn" data-filter="province:Kalimantan Tengah">Kalteng</button>
+                                        <button class="btn btn-outline-secondary filter-btn" data-filter="province:Kalimantan Selatan">Kalsel</button>
+                                        <button class="btn btn-outline-secondary filter-btn" data-filter="province:Kalimantan Timur">Kaltim</button>
+                                        <button class="btn btn-outline-secondary filter-btn" data-filter="province:Kalimantan Utara">Kaltara</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Content Grid -->
+                    <section class="content-grid" id="posts-container">
+                        <!-- Destination cards will be inserted here by JavaScript -->
+                        <div class="row" id="destinationContainer">
+                            <!-- Destination cards will be inserted here by JavaScript -->
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <nav aria-label="Navigasi Halaman Destinasi">
+                                    <ul class="pagination justify-content-center" id="paginationContainer">
+                                        <!-- Pagination items will be inserted here by JavaScript -->
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-12 text-center">
+                                <button class="btn btn-primary" id="loadMoreBtn" style="display: none;">Muat Lebih Banyak</button>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Featured Section (Moved inside main content column) -->
+                    <section class="featured py-5 bg-light mt-5">
+                        <h2 class="text-center mb-5">Destinasi Unggulan</h2>
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="card featured-card h-100 border-0 shadow-sm">
+                                    <div class="row g-0">
+                                        <div class="col-md-6">
+                                            <img src="image/orangutan.jpg" class="img-fluid h-100 object-fit-cover rounded-start" alt="Konservasi Orangutan Kalimantan">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="card-body">
+                                                <h3 class="card-title">Konservasi Orangutan</h3>
+                                                <p class="card-text">Lindungi satwa endemik Kalimantan di pusat rehabilitasi.</p>
+                                                <a href="#" class="btn btn-primary">Lihat Detail</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card featured-card h-100 border-0 shadow-sm">
+                                    <div class="row g-0">
+                                        <div class="col-md-6">
+                                            <img src="image/rumahpanjang.jpg" class="img-fluid h-100 object-fit-cover rounded-start" alt="Rumah Panjang Suku Dayak">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="card-body">
+                                                <h3 class="card-title">Rumah Panjang Dayak</h3>
+                                                <p class="card-text">Pengalaman budaya autentik bersama masyarakat Dayak.</p>
+                                                <a href="#" class="btn btn-primary">Lihat Detail</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <!-- Sidebar Column -->
+                <div class="col-lg-4">
+                    <!-- Sidebar Content -->
+                    <aside class="sidebar">
+                        <!-- Popular Posts Section -->
+                        <section class="sidebar-section mb-5">
+                            <h4 class="mb-3">Destinasi Terbaru</h4>
+                            <div class="list-group">
+                                <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                        <div class="fw-bold">AIR TERJUN SEMOLON</div>
+                                        <small class="text-body-secondary">Malinau, Kaltara</small>
+                                    </div>
+                                    <span class="badge bg-primary rounded-pill">14</span>
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                        <div class="fw-bold">PULAU RANDAYAN</div>
+                                        <small class="text-body-secondary">Kalbar</small>
+                                    </div>
+                                    <span class="badge bg-primary rounded-pill">12</span>
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                        <div class="fw-bold">GUNUNG PALUNG</div>
+                                        <small class="text-body-secondary">Kalbar</small>
+                                    </div>
+                                    <span class="badge bg-primary rounded-pill">8</span>
+                                </a>
+                            </div>
+                        </section>
+
+                        <!-- Popular Posts Section -->
+                        <section class="sidebar-section mb-5">
+                            <h4 class="mb-3">Destinasi Populer</h4>
+                            <div class="list-group">
+                                <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                        <div class="fw-bold">DANAU TAHAI</div>
+                                        <small class="text-body-secondary">Kalteng</small>
+                                    </div>
+                                    <span class="badge bg-danger rounded-pill">25</span>
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                        <div class="fw-bold">PANTAI BERAS BASAH</div>
+                                        <small class="text-body-secondary">Kaltim</small>
+                                    </div>
+                                    <span class="badge bg-danger rounded-pill">22</span>
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                        <div class="fw-bold">SUNGAI MAHAKAM</div>
+                                        <small class="text-body-secondary">Kaltim</small>
+                                    </div>
+                                    <span class="badge bg-danger rounded-pill">18</span>
+                                </a>
+                            </div>
+                        </section>
+
+                        <!-- Tags Section -->
+                        <section class="sidebar-section mb-5">
+                            <h4 class="mb-3">Tag Wilayah</h4>
+                            <div class="tags d-flex flex-wrap gap-2">
+                                <a href="#" class="btn btn-outline-secondary btn-sm">Kalbar</a>
+                                <a href="#" class="btn btn-outline-secondary btn-sm">Kalteng</a>
+                                <a href="#" class="btn btn-outline-secondary btn-sm">Kalsel</a>
+                                <a href="#" class="btn btn-outline-secondary btn-sm">Kaltim</a>
+                                <a href="#" class="btn btn-outline-secondary btn-sm">Kaltara</a>
+                                <a href="#" class="btn btn-outline-secondary btn-sm">Budaya</a>
+                                <a href="#" class="btn btn-outline-secondary btn-sm">Alam</a>
+                            </div>
+                        </section>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-light py-5 mt-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <h3 class="mb-4">Wonderful Indonesia</h3>
+                    <p>Menjelajahi keindahan destinasi wisata Indonesia dari Sabang sampai Merauke</p>
+                    <div class="social-icons d-flex gap-3 mt-4">
+                        <a href="#" class="text-light fs-5"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-light fs-5"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-light fs-5"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-light fs-5"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h4 class="mb-4">Tautan Cepat</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-light text-decoration-none">Beranda</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Destinasi</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Event</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Artikel</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Galeri</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="mb-4">Wilayah</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Sumatera</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Jawa</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Kalimantan</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Sulawesi</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Papua</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="mb-4">Kontak Kami</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> Jakarta, Indonesia</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> info@wonderful-indonesia.id</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> +62 21 12345678</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 bg-secondary">
+            <div class="text-center">
+                <p>&copy; 2025 Wonderful Indonesia. Hak Cipta Dilindungi. Untuk tujuan edukasi dan riset internal.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="kalimantan.js"></script>
+</body>
+</html>

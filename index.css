@@ -1,0 +1,232 @@
+/* Custom styling for Wonderful Indonesia website using Bootstrap */
+
+/* Font */
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-content {
+    z-index: 2;
+}
+
+/* Hero Sumatera specific styling */
+.hero-sumatera {
+    position: relative;
+    z-index: 1;
+    background-color: #2c3e50;
+}
+
+.hero-sumatera .overlay {
+    z-index: 1;
+}
+
+.hero-sumatera .hero-content {
+    z-index: 2;
+}
+
+/* Navigation */
+.navbar {
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    padding: 5px 0;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand img {
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand img:hover {
+    transform: scale(1.05);
+}
+
+.logo-img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+/* Custom navbar styling for new design */
+.navbar .nav-link {
+    font-weight: 500;
+    margin: 0 5px;
+    position: relative;
+}
+
+.navbar .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #ff6b35;
+    transition: width 0.3s ease;
+}
+
+.navbar .nav-link:hover::after {
+    width: 100%;
+}
+
+/* Search button styling */
+.btn-outline-primary {
+    border-color: #1a73e8;
+    color: #1a73e8;
+}
+
+.btn-outline-primary:hover {
+    background-color: #1a73e8;
+    color: white;
+}
+
+/* Section styling */
+.section-title {
+    position: relative;
+    margin-bottom: 3rem;
+    font-weight: 600;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, #ff6b35, #1a73e8);
+    border-radius: 2px;
+}
+
+/* Destination cards */
+.destination-card {
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.destination-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15) !important;
+}
+
+.destination-card img {
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.destination-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Feature items */
+.feature-item {
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+.footer {
+    background: linear-gradient(to bottom, #2c3e50, #1a2530) !important;
+}
+
+/* Hero slider customizations */
+.carousel-item {
+    position: relative;
+}
+
+.carousel-indicators {
+    bottom: 50px;
+}
+
+/* Button styling */
+.btn-warning {
+    background-color: #ff6b35;
+    border-color: #ff6b35;
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+}
+
+.btn-warning:hover {
+    background-color: #e55a2b;
+    border-color: #e55a2b;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.6);
+}
+
+/* Filter section styling */
+.filter-section {
+    background-color: #f8f9fa;
+}
+
+.filter-btn {
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background-color: #1a73e8;
+    border-color: #1a73e8;
+    color: white;
+}
+
+/* Featured section styling */
+.featured-card {
+    transition: all 0.3s ease;
+}
+
+.featured-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+.featured-card .img-fluid {
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Text styling */
+.text-highlight {
+    color: #1a73e8;
+    font-weight: 600;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-sumatera {
+        height: 60vh !important;
+    }
+
+    .hero-sumatera h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-sumatera p {
+        font-size: 1.1rem;
+    }
+
+    .filter-section .row {
+        text-align: center;
+    }
+
+    .filter-section .col-md-3 {
+        margin-bottom: 15px;
+    }
+}
