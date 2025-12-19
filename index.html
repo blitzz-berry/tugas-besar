@@ -39,6 +39,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#" id="nav-sulawesi">Sulawesi</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="kontak.html" id="nav-kontak">Kontak</a>
+                        </li>
                     </ul>
                     <div class="d-flex align-items-center">
                         <div class="input-group search-container">
@@ -88,6 +91,32 @@
             <h1 class="display-3 mb-4">Temukan Keindahan Nusantara</h1>
             <p class="lead mb-4">Jelajahi pesona destinasi wisata unggulan di seluruh pelosok Indonesia</p>
             <button class="btn btn-warning btn-lg px-4 py-2 rounded-pill fw-bold">Jelajahi Sekarang</button>
+        </div>
+    </section>
+
+    <!-- Video Showcase Section -->
+    <section class="video-showcase py-5 bg-dark">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="text-center mb-5">
+                        <h2 class="text-white mb-3">Nikmati Keindahan Indonesia dalam Video</h2>
+                        <p class="text-light">Saksikan momen tak terlupakan dari destinasi wisata terbaik di Nusantara</p>
+                    </div>
+
+                    <!-- Video Player -->
+                    <div class="ratio ratio-16x9 rounded overflow-hidden shadow-lg">
+                        <iframe
+                            src="https://www.youtube.com/embed/oc0LV2_6MSE"
+                            title="Wonderful Indonesia Video"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen
+                            class="w-100 h-100">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -232,7 +261,98 @@
     </footer>
 
     <!-- Bootstrap JS -->
+    <audio id="background-audio" loop preload="auto">
+        <source src="audio/lagu.mp3" type="audio/mpeg">
+        Browser kamu gak support audio element.
+    </audio>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="index.js"></script>
+    <script>
+        // Auto-play music when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            const audio = document.getElementById('background-audio');
+            // Play with low volume to be respectful to users
+            audio.volume = 0.3;
+
+            // Try to play on page load
+            const playPromise = audio.play();
+
+            // Handle autoplay policy if needed
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                    // Autoplay was prevented, play on first user interaction
+                    console.log('Autoplay blocked, waiting for user interaction');
+
+                    const playOnInteraction = () => {
+                        audio.play();
+                        document.removeEventListener('click', playOnInteraction);
+                        document.removeEventListener('touchstart', playOnInteraction);
+                    };
+
+                    document.addEventListener('click', playOnInteraction);
+                    document.addEventListener('touchstart', playOnInteraction);
+                });
+            }
+        });
+
+        // Search functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            const searchButton = document.getElementById('searchButton');
+
+            // Sample data for search - in a real application this would come from your database
+            const searchItems = [
+                { title: "Pantai Kuta", location: "Bali", description: "Pantai terkenal di Bali", tags: ["pantai", "bali", "wisata"] },
+                { title: "Danau Toba", location: "Sumatera Utara", description: "Danau vulkanik terbesar di Indonesia", tags: ["danau", "toba", "sumatera"] },
+                { title: "Candi Borobudur", location: "Jawa Tengah", description: "Candi Buddha terbesar di dunia", tags: ["candi", "borobudur", "jawa"] },
+                { title: "Pulau Komodo", location: "Nusa Tenggara Timur", description: "Rumah binatang purba komodo", tags: ["komodo", "pulau", "ntt"] },
+                { title: "Gunung Bromo", location: "Jawa Timur", description: "Gunung aktif dengan kaldera luas", tags: ["gunung", "bromo", "jawa"] },
+                { title: "Raja Ampat", location: "Papua Barat", description: "Keindahan bawah laut Papua", tags: ["raja ampat", "papua", "laut"] },
+                { title: "Pulau Derawan", location: "Kalimantan Timur", description: "Pulau cantik dengan terumbu karang", tags: ["derawan", "kalimantan", "pantai"] },
+                { title: "Taman Nasional Lorentz", location: "Papua", description: "Taman nasional terbesar di Asia Tenggara", tags: ["lorentz", "papua", "alam"] },
+                { title: "Wakatobi", location: "Sulawesi Tenggara", description: "Taman laut dengan keanekaragaman hayati", tags: ["wakatobi", "sulawesi", "laut"] },
+                { title: "Bunaken", location: "Sulawesi Utara", description: "Pulau dengan keindahan bawah laut", tags: ["bunaken", "sulawesi", "laut"] }
+            ];
+
+            // Function to perform search
+            function performSearch(query) {
+                if (!query.trim()) {
+                    alert('Silakan masukkan kata kunci pencarian');
+                    return;
+                }
+
+                const results = searchItems.filter(item =>
+                    item.title.toLowerCase().includes(query.toLowerCase()) ||
+                    item.location.toLowerCase().includes(query.toLowerCase()) ||
+                    item.description.toLowerCase().includes(query.toLowerCase()) ||
+                    item.tags.some(tag => tag.toLowerCase().includes(query.toLowerCase()))
+                );
+
+                // Display results in an alert for now - in a real app you'd show them in a results page
+                if (results.length > 0) {
+                    let resultText = `Hasil pencarian untuk "${query}":\n\n`;
+                    results.forEach((item, index) => {
+                        resultText += `${index + 1}. ${item.title} - ${item.location}\n   ${item.description}\n\n`;
+                    });
+                    alert(resultText);
+                } else {
+                    alert(`Tidak ditemukan hasil untuk "${query}"`);
+                }
+            }
+
+            // Event listeners for search
+            searchButton.addEventListener('click', function() {
+                const query = searchInput.value;
+                performSearch(query);
+            });
+
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    const query = searchInput.value;
+                    performSearch(query);
+                }
+            });
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Audio Element</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        .result {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .success {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+        .error {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+        iframe {
+            width: 100%;
+            height: 300px;
+            border: 1px solid #ccc;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Testing Audio Element di Semua Halaman</h1>
+    
+    <div id="results"></div>
+    
+    <h2>Preview Halaman:</h2>
+    <h3>Index.html</h3>
+    <iframe src="index.html" title="Index Page"></iframe>
+    
+    <h3>Sumatera.html</h3>
+    <iframe src="sumatera.html" title="Sumatera Page"></iframe>
+    
+    <h3>Jawa.html</h3>
+    <iframe src="jawa.html" title="Jawa Page"></iframe>
+    
+    <h3>Kalimantan.html</h3>
+    <iframe src="kalimantan.html" title="Kalimantan Page"></iframe>
+    
+    <h3>Sulawesi.html</h3>
+    <iframe src="sulawesi.html" title="Sulawesi Page"></iframe>
+
+    <script>
+        // Check for audio elements in each page
+        window.onload = function() {
+            const pages = [
+                {name: "index.html", title: "Halaman Utama"},
+                {name: "sumatera.html", title: "Halaman Sumatera"},
+                {name: "jawa.html", title: "Halaman Jawa"},
+                {name: "kalimantan.html", title: "Halaman Kalimantan"},
+                {name: "sulawesi.html", title: "Halaman Sulawesi"}
+            ];
+            
+            const resultsDiv = document.getElementById('results');
+            
+            pages.forEach(page => {
+                fetch(page.name)
+                    .then(response => response.text())
+                    .then(html => {
+                        // Check if audio element exists in the page
+                        const hasAudio = html.includes('<audio') && html.includes('background-music.mp3');
+                        const hasScript = html.includes('document.getElementById(\'background-audio\')');
+                        
+                        const div = document.createElement('div');
+                        div.className = 'result ' + (hasAudio && hasScript ? 'success' : 'error');
+                        div.innerHTML = `<strong>${page.title} (${page.name})</strong>: ` +
+                                      `${hasAudio ? '✓ Elemen audio ditemukan' : '✗ Elemen audio TIDAK ditemukan'} ` +
+                                      `${hasScript ? '✓ Script ditemukan' : '✗ Script TIDAK ditemukan'}`;
+                        
+                        resultsDiv.appendChild(div);
+                    })
+                    .catch(err => {
+                        const div = document.createElement('div');
+                        div.className = 'result error';
+                        div.innerHTML = `<strong>${page.title} (${page.name})</strong>: Gagal memuat halaman - ${err.message}`;
+                        
+                        resultsDiv.appendChild(div);
+                    });
+            });
+        };
+    </script>
+</body>
+</html>

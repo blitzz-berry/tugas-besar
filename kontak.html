@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak - Wonderful Indonesia</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="index.css">
+    <style>
+        /* Specific styling for contact page */
+        .contact-form-card {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+        }
+
+        .contact-info-card {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 25px;
+            height: 100%;
+        }
+
+        .form-control {
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            padding: 10px 15px;
+            transition: border-color 0.25s;
+            background-color: #fdfdfd;
+        }
+
+        .form-control:focus {
+            border-color: #1a73e8;
+            box-shadow: 0 0 0 0.15rem rgba(26, 115, 232, 0.15);
+            background-color: #ffffff;
+        }
+
+        .btn-primary {
+            background-color: #1a73e8;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-weight: 500;
+            transition: background-color 0.25s;
+        }
+
+        .btn-primary:hover {
+            background-color: #0d6efd;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(13, 110, 253, 0.25);
+        }
+
+        h2 {
+            color: #212529;
+            font-weight: 600;
+        }
+
+        label {
+            color: #495057;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .contact-info h5 {
+            color: #1a73e8;
+            font-weight: 600;
+        }
+
+        .contact-info p {
+            color: #6c757d;
+        }
+
+        .social-icons .btn-outline-primary {
+            color: #1a73e8;
+            border-color: #1a73e8;
+        }
+
+        .social-icons .btn-outline-primary:hover {
+            background-color: #1a73e8;
+            border-color: #1a73e8;
+        }
+
+        .social-icons .btn-outline-danger {
+            color: #dc3545;
+            border-color: #dc3545;
+        }
+
+        .social-icons .btn-outline-danger:hover {
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+
+        .social-icons .btn-outline-info {
+            color: #17a2b8;
+            border-color: #17a2b8;
+        }
+
+        .social-icons .btn-outline-info:hover {
+            background-color: #17a2b8;
+            border-color: #17a2b8;
+        }
+
+        .card-title {
+            color: #2c3e50;
+        }
+
+        .card-text {
+            color: #6c757d;
+        }
+
+        /* Navbar link hover animation - specific for this page */
+        .navbar .nav-link::after {
+            background-color: #ff6b35 !important;
+        }
+
+        /* Hero section for contact page */
+        .hero {
+            background: url('image/bali1 (2).jpg') no-repeat center center;
+            background-size: cover;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Dark overlay for text readability */
+            z-index: 1;
+        }
+
+        .hero-content {
+            z-index: 2;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="image/wonderfulindonesia.png" alt="Wonderful Indonesia Logo" class="logo-img">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="sumatera.html">Sumatera</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="jawa.html">Jawa</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="kalimantan.html">Kalimantan</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="sulawesi.html">Sulawesi</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="kontak.html" id="nav-kontak">Kontak</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex align-items-center">
+                        <div class="input-group search-container">
+                            <input type="text" class="form-control" placeholder="Search..." id="searchInput">
+                            <button class="btn btn-outline-primary" type="button" id="searchButton">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero position-relative" style="padding: 100px 0 50px;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="text-center text-white">
+                        <h1 class="display-4 fw-bold mb-3">Hubungi Kami</h1>
+                        <p class="lead">Punya pertanyaan, saran, atau ingin berkolaborasi? Tim Wonderful Indonesia siap membantu Anda.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact py-5 bg-light">
+        <div class="container">
+            <div class="row g-5">
+                <!-- Contact Form -->
+                <div class="col-lg-8">
+                    <div class="card contact-form-card p-4">
+                        <h2 class="mb-4">Kirim Pesan</h2>
+                        <form id="contactForm" autocomplete="on">
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <label for="name" class="form-label">Nama Lengkap</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text" style="background-color: #f8f9fa; border-right: none;">
+                                            <i class="fas fa-user" style="color: #1a73e8;"></i>
+                                        </span>
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="Masukkan nama Anda" required
+                                            style="border-left: none;" autocomplete="name">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <label for="email" class="form-label">Email</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text" style="background-color: #f8f9fa; border-right: none;">
+                                            <i class="fas fa-envelope" style="color: #1a73e8;"></i>
+                                        </span>
+                                        <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan email Anda" required
+                                            style="border-left: none;" autocomplete="email">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <label for="subject" class="form-label">Subjek</label>
+                                <div class="input-group">
+                                    <span class="input-group-text" style="background-color: #f8f9fa; border-right: none;">
+                                        <i class="fas fa-tag" style="color: #1a73e8;"></i>
+                                    </span>
+                                    <input type="text" class="form-control" id="subject" name="subject" placeholder="Masukkan subjek pesan" required
+                                        style="border-left: none;" autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <label for="message" class="form-label">Pesan</label>
+                                <div class="input-group">
+                                    <span class="input-group-text" style="background-color: #f8f9fa; border-right: none; border-bottom-left-radius: 8px; border-top-left-radius: 8px;">
+                                        <i class="fas fa-comment-dots" style="color: #1a73e8;"></i>
+                                    </span>
+                                    <textarea class="form-control" id="message" name="message" rows="5" placeholder="Tulis pesan Anda di sini..." required
+                                        style="border-left: none; border-bottom-right-radius: 8px; border-top-right-radius: 8px;" autocomplete="off"></textarea>
+                                </div>
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    Kirim Pesan
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="col-lg-4">
+                    <div class="card contact-info-card p-4 h-100">
+                        <h2 class="mb-4">Informasi Kontak</h2>
+
+                        <div class="contact-info mb-4">
+                            <div class="d-flex align-items-start mb-4">
+                                <div class="icon me-3 text-primary">
+                                    <i class="fas fa-map-marker-alt fa-2x"></i>
+                                </div>
+                                <div>
+                                    <h5>Alamat</h5>
+                                    <p class="mb-0">Jl. Merdeka No. 1, Jakarta, Indonesia</p>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-start mb-4">
+                                <div class="icon me-3 text-primary">
+                                    <i class="fas fa-phone-alt fa-2x"></i>
+                                </div>
+                                <div>
+                                    <h5>Telepon</h5>
+                                    <p class="mb-0">+62 21 12345678</p>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-start mb-4">
+                                <div class="icon me-3 text-primary">
+                                    <i class="fas fa-envelope fa-2x"></i>
+                                </div>
+                                <div>
+                                    <h5>Email</h5>
+                                    <p class="mb-0">info@wonderful-indonesia.id</p>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-start">
+                                <div class="icon me-3 text-primary">
+                                    <i class="fas fa-clock fa-2x"></i>
+                                </div>
+                                <div>
+                                    <h5>Jam Operasional</h5>
+                                    <p class="mb-0">Senin - Jumat: 08.00 - 17.00 WIB</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3 class="mt-5 mb-4">Ikuti Kami</h3>
+                        <div class="social-icons d-flex gap-3">
+                            <a href="#" class="btn btn-outline-primary rounded-circle"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="btn btn-outline-danger rounded-circle"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="btn btn-outline-info rounded-circle"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="btn btn-outline-danger rounded-circle"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Info Section -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="card contact-info-card p-4">
+                        <h2 class="mb-4">Layanan Kami</h2>
+                        <div class="row">
+                            <div class="col-md-4 text-center mb-4">
+                                <div class="service-item p-4 rounded" style="background-color: #f8f9fa; border: 1px solid #e9ecef; transition: transform 0.3s, box-shadow 0.3s;">
+                                    <div class="icon mb-3" style="width: 70px; height: 70px; line-height: 70px; background: #1a73e8; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">
+                                        <i class="fas fa-concierge-bell fa-2x" style="color: white;"></i>
+                                    </div>
+                                    <h5 class="mt-3" style="color: #212529;">Reservasi Wisata</h5>
+                                    <p class="mt-2">Kami bantu Anda merencanakan perjalanan wisata terbaik di seluruh Indonesia.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 text-center mb-4">
+                                <div class="service-item p-4 rounded" style="background-color: #f8f9fa; border: 1px solid #e9ecef; transition: transform 0.3s, box-shadow 0.3s;">
+                                    <div class="icon mb-3" style="width: 70px; height: 70px; line-height: 70px; background: #1a73e8; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">
+                                        <i class="fas fa-hotel fa-2x" style="color: white;"></i>
+                                    </div>
+                                    <h5 class="mt-3" style="color: #212529;">Akomodasi</h5>
+                                    <p class="mt-2">Temukan penginapan terbaik sesuai kebutuhan dan anggaran Anda.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 text-center mb-4">
+                                <div class="service-item p-4 rounded" style="background-color: #f8f9fa; border: 1px solid #e9ecef; transition: transform 0.3s, box-shadow 0.3s;">
+                                    <div class="icon mb-3" style="width: 70px; height: 70px; line-height: 70px; background: #1a73e8; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">
+                                        <i class="fas fa-truck-moving fa-2x" style="color: white;"></i>
+                                    </div>
+                                    <h5 class="mt-3" style="color: #212529;">Transportasi</h5>
+                                    <p class="mt-2">Solusi transportasi terbaik untuk perjalanan Anda di seluruh pelosok Nusantara.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-light py-5 mt-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <h3 class="mb-4">Wonderful Indonesia</h3>
+                    <p>Menjelajahi keindahan destinasi wisata Indonesia dari Sabang sampai Merauke</p>
+                    <div class="social-icons d-flex gap-3 mt-4">
+                        <a href="#" class="text-light fs-5"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-light fs-5"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-light fs-5"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-light fs-5"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h4 class="mb-4">Tautan Cepat</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-light text-decoration-none">Beranda</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Destinasi</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Event</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Artikel</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Galeri</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="mb-4">Wilayah</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="sumatera.html" class="text-light text-decoration-none">Sumatera</a></li>
+                        <li class="mb-2"><a href="jawa.html" class="text-light text-decoration-none">Jawa</a></li>
+                        <li class="mb-2"><a href="kalimantan.html" class="text-light text-decoration-none">Kalimantan</a></li>
+                        <li class="mb-2"><a href="sulawesi.html" class="text-light text-decoration-none">Sulawesi</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Papua</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="mb-4">Kontak Kami</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> Jakarta, Indonesia</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> info@wonderful-indonesia.id</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> +62 21 12345678</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 bg-secondary">
+            <div class="text-center">
+                <p>&copy; 2025 Wonderful Indonesia. Hak Cipta Dilindungi. Untuk tujuan edukasi dan riset internal.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <audio id="background-audio" loop preload="auto" style="display: none;">
+        <source src="audio/background-music.mp3" type="audio/mpeg">
+        Browser kamu gak support audio element.
+    </audio>
+    <script>
+        // Audio functionality (from previous implementation)
+        document.addEventListener('DOMContentLoaded', function() {
+            const audio = document.getElementById('background-audio');
+            if (audio) {
+                // Only set volume if this page has audio element
+                audio.volume = 0.3;
+
+                // Try to play on page load
+                const playPromise = audio.play();
+
+                // Handle autoplay policy if needed
+                if (playPromise !== undefined) {
+                    playPromise.catch(error => {
+                        // Autoplay was prevented, play on first user interaction
+                        console.log('Autoplay blocked, waiting for user interaction');
+
+                        const playOnInteraction = () => {
+                            audio.play();
+                            document.removeEventListener('click', playOnInteraction);
+                            document.removeEventListener('touchstart', playOnInteraction);
+                        };
+
+                        document.addEventListener('click', playOnInteraction);
+                        document.addEventListener('touchstart', playOnInteraction);
+                    });
+                }
+            }
+
+            // Contact form submission
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+
+                    // Get form values
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const subject = document.getElementById('subject').value;
+                    const message = document.getElementById('message').value;
+
+                    // In a real application, you would send this data to a server
+                    // For now, we'll just show an alert
+                    alert(`Terima kasih ${name}! Pesan Anda telah dikirim.\n\nKami akan segera menghubungi Anda di ${email}.`);
+
+                    // Reset form
+                    contactForm.reset();
+                });
+            }
+
+            // Add hover effect to service items
+            const serviceItems = document.querySelectorAll('.service-item');
+
+            serviceItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px)';
+                    this.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.1)';
+                });
+
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = 'none';
+                });
+            });
+        });
+
+        // Search functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            const searchButton = document.getElementById('searchButton');
+
+            // Sample data for search - in a real application this would come from your database
+            const searchItems = [
+                { title: "Wisata Pantai", location: "Indonesia", description: "Destinasi wisata pantai terbaik", tags: ["pantai", "wisata", "liburan", "indonesia"] },
+                { title: "Candi Borobudur", location: "Jawa Tengah", description: "Candi Buddha terbesar di dunia", tags: ["candi", "borobudur", "jawa", "sejarah"] },
+                { title: "Danau Toba", location: "Sumatera Utara", description: "Danau vulkanik terbesar di Indonesia", tags: ["danau", "toba", "sumatera", "alam"] },
+                { title: "Pulau Komodo", location: "Nusa Tenggara Timur", description: "Rumah binatang purba komodo", tags: ["komodo", "pulau", "ntt", "alam"] },
+                { title: "Gunung Bromo", location: "Jawa Timur", description: "Gunung aktif dengan kaldera luas", tags: ["gunung", "bromo", "jawa", "alam"] },
+                { title: "Raja Ampat", location: "Papua Barat", description: "Keindahan bawah laut Papua", tags: ["raja ampat", "papua", "laut", "alam"] },
+                { title: "Taman Nasional Bunaken", location: "Sulawesi Utara", description: "Pulau dengan keindahan bawah laut", tags: ["bunaken", "sulawesi", "laut", "alam"] },
+                { title: "Pulau Derawan", location: "Kalimantan Timur", description: "Pulau cantik dengan terumbu karang", tags: ["derawan", "kalimantan", "pantai", "laut"] },
+                { title: "Kota Tua Jakarta", location: "DKI Jakarta", description: "Area bersejarah di Jakarta", tags: ["kota tua", "jakarta", "sejarah"] },
+                { title: "Kawah Ijen", location: "Jawa Timur", description: "Gunung dengan fenomena blue fire", tags: ["kawah ijen", "jawa", "alam"] }
+            ];
+
+            // Function to perform search
+            function performSearch(query) {
+                if (!query.trim()) {
+                    alert('Silakan masukkan kata kunci pencarian');
+                    return;
+                }
+
+                const results = searchItems.filter(item =>
+                    item.title.toLowerCase().includes(query.toLowerCase()) ||
+                    item.location.toLowerCase().includes(query.toLowerCase()) ||
+                    item.description.toLowerCase().includes(query.toLowerCase()) ||
+                    item.tags.some(tag => tag.toLowerCase().includes(query.toLowerCase()))
+                );
+
+                // Display results in an alert for now - in a real app you'd show them in a results page
+                if (results.length > 0) {
+                    let resultText = `Hasil pencarian untuk "${query}":\n\n`;
+                    results.forEach((item, index) => {
+                        resultText += `${index + 1}. ${item.title} - ${item.location}\n   ${item.description}\n\n`;
+                    });
+                    alert(resultText);
+                } else {
+                    alert(`Tidak ditemukan hasil untuk "${query}"`);
+                }
+            }
+
+            // Event listeners for search
+            searchButton.addEventListener('click', function() {
+                const query = searchInput.value;
+                performSearch(query);
+            });
+
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    const query = searchInput.value;
+                    performSearch(query);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -39,6 +39,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#" id="nav-sulawesi-sm">Sulawesi</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="kontak.html" id="nav-kontak">Kontak</a>
+                        </li>
                     </ul>
                     <div class="d-flex align-items-center">
                         <div class="input-group search-container">
@@ -308,7 +311,98 @@
     </footer>
 
     <!-- Bootstrap JS -->
+    <audio id="background-audio" loop preload="auto">
+        <source src="audio/lagu.mp3" type="audio/mpeg">
+        Browser kamu gak support audio element.
+    </audio>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="sumatera.js"></script>
+    <script>
+        // Auto-play music when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            const audio = document.getElementById('background-audio');
+            // Play with low volume to be respectful to users
+            audio.volume = 0.3;
+
+            // Try to play on page load
+            const playPromise = audio.play();
+
+            // Handle autoplay policy if needed
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                    // Autoplay was prevented, play on first user interaction
+                    console.log('Autoplay blocked, waiting for user interaction');
+
+                    const playOnInteraction = () => {
+                        audio.play();
+                        document.removeEventListener('click', playOnInteraction);
+                        document.removeEventListener('touchstart', playOnInteraction);
+                    };
+
+                    document.addEventListener('click', playOnInteraction);
+                    document.addEventListener('touchstart', playOnInteraction);
+                });
+            }
+        });
+
+        // Search functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            const searchButton = document.getElementById('searchButton');
+
+            // Sample data for search - in a real application this would come from your database
+            const searchItems = [
+                { title: "Danau Toba", location: "Sumatera Utara", description: "Danau vulkanik terbesar di Indonesia", tags: ["danau", "toba", "sumatera"] },
+                { title: "Gunung Leuser", location: "Aceh", description: "Taman Nasional dengan hutan hujan tropis", tags: ["gunung", "leuser", "aceh", "alam"] },
+                { title: "Pulau Weh", location: "Sabang, Aceh", description: "Pulau di ujung barat Indonesia", tags: ["pulau", "weh", "aceh"] },
+                { title: "Bukit Lawang", location: "Sumatera Utara", description: "Tempat konservasi orangutan", tags: ["bukit lawang", "alam", "wisata"] },
+                { title: "Air Terjun Sembilan", location: "Jambi", description: "Air terjun indah dengan alam sekitar", tags: ["air terjun", "sembilan", "jambi"] },
+                { title: "Taman Nasional Kerinci Seblat", location: "Jambi", description: "Rumah harimau sumatera dan rafflesia", tags: ["kerinci seblat", "jambi", "alam"] },
+                { title: "Pantai Carocok", location: "Pesisir Selatan, Sumbar", description: "Pantai eksotis di ujung barat pulau sumatera", tags: ["pantai", "carocok", "sumbar"] },
+                { title: "Gunung Kerinci", location: "Jambi", description: "Gunung tertinggi di Sumatera", tags: ["gunung", "kerinci", "jambi"] },
+                { title: "Pulau Mentawai", location: "Sumatera Barat", description: "Kepulauan eksotis dengan ombak besar", tags: ["mentawai", "sumbar", "pantai"] },
+                { title: "Tanjung Puting", location: "Kalimantan Tengah", description: "Cagar alam tempat konservasi orangutan", tags: ["tanjung puting", "kalimantan", "alam"] }
+            ];
+
+            // Function to perform search
+            function performSearch(query) {
+                if (!query.trim()) {
+                    alert('Silakan masukkan kata kunci pencarian');
+                    return;
+                }
+
+                const results = searchItems.filter(item =>
+                    item.title.toLowerCase().includes(query.toLowerCase()) ||
+                    item.location.toLowerCase().includes(query.toLowerCase()) ||
+                    item.description.toLowerCase().includes(query.toLowerCase()) ||
+                    item.tags.some(tag => tag.toLowerCase().includes(query.toLowerCase()))
+                );
+
+                // Display results in an alert for now - in a real app you'd show them in a results page
+                if (results.length > 0) {
+                    let resultText = `Hasil pencarian untuk "${query}":\n\n`;
+                    results.forEach((item, index) => {
+                        resultText += `${index + 1}. ${item.title} - ${item.location}\n   ${item.description}\n\n`;
+                    });
+                    alert(resultText);
+                } else {
+                    alert(`Tidak ditemukan hasil untuk "${query}"`);
+                }
+            }
+
+            // Event listeners for search
+            searchButton.addEventListener('click', function() {
+                const query = searchInput.value;
+                performSearch(query);
+            });
+
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    const query = searchInput.value;
+                    performSearch(query);
+                }
+            });
+        });
+    </script>
 </body>
 </html>
